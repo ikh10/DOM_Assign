@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copyTextArea</title>
+    <style>
+        .body{
+            display: flex ;
+            /* justify-content: center;
+            align-items: center; */
+            height: 100vh;
+        }
+        .box{
+            border: 3px solid black;
+        }
+
+        #B{
+            margin-top: 25px;
+            height: 150px;
+            width: 750px;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <textarea name="" id="text" rows="12" cols="40"></textarea>
+    <div class="prop">
+        <h1>Css Properties</h1>
+        <input type="text" name="" id="color" placeholder="color">
+        <input type="text" id="bgcolor" placeholder="background color">
+        <input type="text" id="FS" placeholder="Font size">
+    </div>
+    <div class="box" id="B"></div>
+    <h3>Total Letters : <span id="TL"></span></h3>
+
+    <script>
+        document.getElementById("text").oninput = function(){
+            let text=  document.getElementById("text").value 
+            document.getElementById("B").textContent=text
+            document.getElementById("TL").textContent=text.length
+        }
+
+        document.getElementById("color").oninput=function(){
+            let color = document.getElementById("color").value
+            document.getElementById("B").style.color = color
+        }
+
+        document.getElementById("bgcolor").oninput=function(){
+            let bgcolor = document.getElementById("bgcolor").value
+            document.getElementById("B").style.backgroundColor = bgcolor
+        }
+
+        document.getElementById("FS").oninput = function(){
+            let size = document.getElementById('FS').value;
+            document.getElementById("B").style.fontSize=size+"px"
+        }
+    </script>
+</body>
+</html>

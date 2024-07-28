@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .container{
+            width: 50%;
+            padding: 50px 50px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        select{
+            margin: 18px 0px;
+            height: 30px;
+            width: 230px;
+            display: flex;
+        }
+
+        p{
+            font-family: sans-serif;
+            text-align: justify;
+            line-height: 20px;
+            font-size: 15px;
+            margin: 20px 0px;
+            color: black;
+        }
+        #red{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: red;
+        }
+        #yellow{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: yellow;
+        }
+        #green{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: green;
+        }
+        #blue{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: blue;
+        }
+        #black{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: black;
+        }
+        button{
+            background-color: rgb(15, 170, 15);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Your Domain:</h2>
+        <select name="" id="select">
+            <option value="mac">--Make a choice--</option>
+            <option value="react">React</option>
+            <option value="django">Django</option>
+            <option value="angular">Angular</option>
+            <option value="aws">AWS</option>
+        </select>
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="blue"></div>
+        <div id="green"></div>
+        <div id="black"></div>
+        <p id="para"></p>
+        <button id="upper">upper</button>
+        <button id="lower">lower</button>
+        <button id="inc">+</button>
+        <button id="dec">-</button>
+    </div>
+
+    <script>
+        document.getElementById("select").onclick = function(){
+            let domain = document.getElementById("select").value;
+           
+            if(domain=="django"){
+
+                document.getElementById("para").innerText = "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source. Django was designed to help developers take applications from concept to completion as quickly as possible. Django includes dozens of extras you can use to handle common web development tasks. Django takes care of user authentication, content administration, site maps, RSS feeds, and many more tasks — right out of the box. Django takes security seriously and helps developers avoid many common security mistakes, such as SQL injection, cross-site scripting, cross-site request forgery and clickjacking. Its user authentication system provides a secure way to manage user accounts and passwords. Some of the busiest sites on the planet use Django’s ability to quickly and flexibly scale to meet the heaviest traffic demands. Companies, organizations and governments have used Django to build all sorts of things — from content management systems to social networks to scientific computing platforms."
+            }
+            if(domain=="aws"){
+                document.getElementById("para").innerText = "AWS (Amazon Web Services) is a comprehensive cloud computing platform offered by Amazon. It provides a wide range of services including computing power (EC2), storage solutions (S3), databases (RDS), networking (VPC), and more, all accessible on-demand via a pay-as-you-go model. AWS services are delivered to customers via a network of AWS server farms located throughout the world. Fees are based on a combination of usage , hardware, operating system, software, and networking features chosen by the subscriber requiring various degrees of availability, redundancy, security, and service options. Subscribers can pay for a single virtual AWS computer, a dedicated physical computer, or clusters of either. "
+            }
+            if(domain=="react"){
+                document.getElementById("para").innerText = "React is a powerful JavaScript library designed for building user interfaces, particularly for single-page applications where UI changes in response to data updates. Developed by Facebook, React has gained widespread adoption due to its efficiency and declarative programming model. At its core, React employs a virtual DOM (Document Object Model) that represents the UI in memory. This abstraction allows React to selectively update only the parts of the actual DOM that need changes, optimizing performance by minimizing costly DOM operations. This approach contrasts with traditional imperative UI updates, where developers manually manipulate the DOM."
+            }
+            if(domain=="angular"){
+                document.getElementById("para").innerText = "AngularJS is a popular open-source framework that simplifies web development by creating interactive single-page applications (SPAs). Unlike traditional websites that load new pages for each click, SPAs offer a smoother user experience by updating content on the same page. AngularJS makes this possible by transforming static HTML into dynamic content that adapts to user interactions. Features like data binding and dependency injection streamline development, saving you time and effort. With regular updates and a large community, AngularJS ensures your web applications stay modern and efficient."
+            }
+        }
+
+        document.getElementById('red').onclick = function(){
+            document.querySelector("body").style.backgroundColor='red';
+        }
+        document.getElementById('yellow').onclick = function(){
+            document.querySelector("body").style.backgroundColor='yellow';
+        }
+        document.getElementById('green').onclick = function(){
+            document.querySelector('body').style.backgroundColor='green';
+        }
+        document.getElementById('blue').onclick = function(){
+            document.querySelector('body').style.backgroundColor='blue';
+        }
+        document.getElementById('black').onclick = function(){
+            document.querySelector('body').style.backgroundColor='black';
+        }
+        let count=16;
+
+        document.getElementById('upper').onclick = function(){
+            document.getElementById('para').style.textTransform='uppercase'
+        }
+
+        document.getElementById('lower').onclick = function(){
+            document.getElementById('para').style.textTransform='lowercase'
+        }
+        document.getElementById('inc').onclick = function(){
+            count++;
+            document.getElementById('para').style.fontSize = count +"px"
+
+        }
+        document.getElementById('dec').onclick = function(){
+            count--;
+            document.getElementById('para').style.fontSize = count + "px"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <style>
+        input, button{
+            font-size: 22px;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+       li{
+        font-size: 30px;
+        margin-bottom: 25px;
+       }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My ToDo List</h1>
+        <input type="text">
+        <button>ADD</button>
+    </div>
+    <ul id="taskList"></ul>
+    
+    <script>
+        document.querySelector("button").onclick=function(){
+            let val=document.querySelector("input").value;
+            let list=document.createElement("li");
+            list.innerHTML=val;
+            document.getElementById("taskList").append(list);
+
+            let completeButton = document.createElement("button");
+            completeButton.textContent = "Complete";
+            completeButton.onclick = function() {
+                list.classList.toggle("completed");
+            };
+            list.append(completeButton);
+
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = function() {
+                list.remove();
+            };
+            list.append(deleteButton);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-auto-rows: 150px;
+        }
+
+        .box{
+            border-radius: 100px;
+            padding: 20px;
+        }
+    </style>
+    <title>Color Grid</title>
+</head>
+<body>
+    <div class="container" id="container"> </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.getElementById('container');
+            const numBoxes = 50; // No. of boxes to add
+
+            // Create boxes 
+            for (let i = 1; i <= numBoxes; i++) {
+                const box = document.createElement('div');
+                box.classList.add('box');
+                container.append(box);
+
+                // hover
+                box.addEventListener('mouseenter', function () {
+                    let color = `${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)}`;
+                    box.style.backgroundColor = `rgb(${color})`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <select id="operation">
+        <option value="add">Add</option>
+        <option value="sub">Minus</option>
+        <option value="mul">Mul</option>
+        <option value="divide">Divide</option>
+    </select>
+    
+    <script>
+        document.getElementById("operation").oninput= function() {
+            let num1 = parseFloat(document.getElementById('num1').value) || 0;
+            let num2 = parseFloat(document.getElementById('num2').value) || 0;
+            let operation = document.getElementById('operation').value;
+
+            let result;
+            if (operation === 'add') {
+                result = num1 + num2;
+            } else if (operation === 'sub') {
+                result = num1 - num2;
+            } else if (operation === 'mul') {
+                result = num1 * num2;
+            } else if (operation === 'divide') {
+                // division by zero
+                if (num2 === 0) {
+                    console.error('Cannot divide by zero.');
+                    return;
+                }
+                result = num1 / num2;
+            } 
+            // Output result to console
+            console.log( result);
+        }
+    </script>
+</body>
+</html>
